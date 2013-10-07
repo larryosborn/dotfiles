@@ -33,7 +33,6 @@ filetype off
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'henrik/vim-indexed-search'
 Bundle 'wookiehangover/jshint.vim'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'msanders/snipmate.vim'

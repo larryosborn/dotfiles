@@ -35,16 +35,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'wookiehangover/jshint.vim'
 Bundle 'scrooloose/nerdtree.git'
-Bundle 'msanders/snipmate.vim'
-Bundle 'tpope/vim-commentary.git'
+Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive.git'
 Bundle 'tpope/vim-git.git'
 Bundle 'pangloss/vim-javascript'
 Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-markdown.git'
-Bundle 'tpope/vim-repeat'
 Bundle 'mhinz/vim-startify.git'
-Bundle 'tpope/vim-surround.git'
 Bundle 'Arkham/vim-tango.git'
 
 highlight Error ctermbg=darkblue  ctermfg=white

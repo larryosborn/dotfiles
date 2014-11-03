@@ -23,12 +23,15 @@ set showcmd
 set softtabstop=4
 set tabstop=4
 set writeany
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 set t_Co=256
 set term=xterm-256color
 let coffee_lint_options='-f ~/.coffeelint.json'
 
-call vundle#rc()
+filetype off
+filetype plugin indent off
+
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'wookiehangover/jshint.vim'
@@ -40,6 +43,7 @@ Bundle 'Arkham/vim-tango.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'Lokaltog/vim-distinguished'
+
 
 highlight Error ctermbg=darkblue  ctermfg=white
 highlight WhitespaceEOL ctermbg=lightgray guibg=lightgrey
@@ -54,7 +58,5 @@ au BufNewFile *.pl 0r ~/.vim/skeleton/skeleton.pl
 au BufNewFile *.html 0r ~/.vim/skeleton/skeleton.html
 au BufWritePre * :%s/\s\+$//e
 
-filetype off
-filetype plugin indent off
 syntax on
 color distinguished

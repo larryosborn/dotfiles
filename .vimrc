@@ -30,7 +30,7 @@ filetype off
 
 call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 Bundle 'wookiehangover/jshint.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'pangloss/vim-javascript'

@@ -25,6 +25,7 @@ set tabstop=4
 set writeany
 set rtp+=~/.vim/bundle/Vundle.vim
 let coffee_lint_options='-f ~/.coffeelint.json'
+let g:vim_json_syntax_conceal=0
 
 filetype off
 
@@ -40,6 +41,7 @@ Bundle 'Arkham/vim-tango.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'Lokaltog/vim-distinguished'
+Bundle 'elzr/vim-json'
 
 call vundle#end()            " required
 "filetype plugin indent on    " required

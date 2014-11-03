@@ -2,11 +2,10 @@ set autoindent
 set background=dark
 set backspace=indent,eol,start
 set binary noeol
-set clipboard+=unnamed
 set cursorline
 set encoding=utf-8
 set expandtab
-set guifont=Bitstream\ Vera\ Sans\ Mono\ 10
+set guifont=Menlo\ 10
 set guioptions+=e
 set guioptions-=T
 set hidden
@@ -25,39 +24,37 @@ set softtabstop=4
 set tabstop=4
 set writeany
 set rtp+=~/.vim/bundle/vundle/
-
-syntax on
-
-filetype off
+set t_Co=256
+set term=xterm-256color
+let coffee_lint_options='-f ~/.coffeelint.json'
 
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'wookiehangover/jshint.vim'
-Bundle 'scrooloose/nerdtree.git'
 Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-fugitive.git'
-Bundle 'tpope/vim-git.git'
 Bundle 'pangloss/vim-javascript'
 Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-markdown.git'
-Bundle 'mhinz/vim-startify.git'
 Bundle 'Arkham/vim-tango.git'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'Lokaltog/vim-distinguished'
 
 highlight Error ctermbg=darkblue  ctermfg=white
 highlight WhitespaceEOL ctermbg=lightgray guibg=lightgrey
-match WhitespaceEOL /\s+$/
-
 highlight tabtabtab ctermbg=lightgray guibg=lightgrey
+
+match WhitespaceEOL /\s+$/
 match tabtabtab /\t/
 
 au Syntax * syn match Error /\s\+$/ | syn match Error /\(^\s*\)\@<= \+\ze\t\+/
 au BufNewFile *.pm 0r ~/.vim/skeleton/skeleton.pm
 au BufNewFile *.pl 0r ~/.vim/skeleton/skeleton.pl
 au BufNewFile *.html 0r ~/.vim/skeleton/skeleton.html
+au BufWritePre * :%s/\s\+$//e
 
-autocmd BufWritePre * :%s/\s\+$//e
-
-colo tango
-
-filetype plugin indent on
+filetype off
+filetype plugin indent off
+syntax on
+color distinguished

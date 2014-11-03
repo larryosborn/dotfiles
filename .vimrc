@@ -24,12 +24,9 @@ set softtabstop=4
 set tabstop=4
 set writeany
 set rtp+=~/.vim/bundle/Vundle.vim
-set t_Co=256
-set term=xterm-256color
 let coffee_lint_options='-f ~/.coffeelint.json'
 
 filetype off
-filetype plugin indent off
 
 call vundle#begin()
 
@@ -43,6 +40,11 @@ Bundle 'Arkham/vim-tango.git'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'Lokaltog/vim-distinguished'
+
+call vundle#end()            " required
+"filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+filetype plugin on
 
 
 highlight Error ctermbg=darkblue  ctermfg=white
@@ -59,4 +61,6 @@ au BufNewFile *.html 0r ~/.vim/skeleton/skeleton.html
 au BufWritePre * :%s/\s\+$//e
 
 syntax on
+set t_Co=256
+set term=xterm-256color
 color distinguished

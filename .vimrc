@@ -5,7 +5,7 @@ set binary noeol
 set cursorline
 set encoding=utf-8
 set expandtab
-set guifont=Menlo\ 10
+set guifont=Menlo:h12
 set guioptions+=e
 set guioptions-=T
 set hidden
@@ -42,6 +42,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'Lokaltog/vim-distinguished'
 Bundle 'elzr/vim-json'
+Bundle 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 "filetype plugin indent on    " required

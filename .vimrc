@@ -102,3 +102,10 @@ set background=dark
 colo bubblegum-256-dark
 let g:airline_theme='bubblegum'
 "color solarized
+
+let hour = strftime("%H")
+if hour < 7 && hour > 18
+    colo bubblegum-256-light
+else
+    colo bubblegum-256-dark
+endif

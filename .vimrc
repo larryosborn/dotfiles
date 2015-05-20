@@ -5,7 +5,7 @@ set binary noeol
 set cursorline
 set encoding=utf-8
 set expandtab
-set guifont=Menlo:h12
+set guifont=Meslo\ LG\ S\ for\ Powerline:h12
 set guioptions+=e
 set guioptions-=T
 set hidden

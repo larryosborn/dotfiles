@@ -1,20 +1,52 @@
 {
+    "extends": "eslint:recommended",
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "mocha": true
     },
     "settings": {
-        "ecmascript": 6,
+        "ecmascript": 8,
         "html/html-extensions": [".html",".ract"]
     },
     "plugins": [
         "html"
     ],
+    "globals": {
+        "component": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017
+    },
     "rules": {
+        "arrow-body-style": [
+            "error",
+            "as-needed",
+            { "requireReturnForObjectLiteral": true }
+        ],
+        "arrow-parens": [
+            "error",
+            "as-needed",
+            { "requireForBlockBody": true }
+        ],
+        "arrow-spacing": "error",
+        "curly": [
+            "warn",
+            "all"
+        ],
+        "dot-notation": "error",
+        "func-style": [
+            "error",
+            "expression"
+        ],
         "indent": [
             "error",
             4
+        ],
+        "keyword-spacing": [
+            "error",
+            { "before": true }
         ],
         "linebreak-style": [
             "error",
@@ -24,7 +56,34 @@
             "error",
             "single"
         ],
+        "quote-props": [
+            "error",
+            "as-needed"
+        ],
+        "no-console": "off",
+        "no-duplicate-imports": "error",
+        "no-loop-func": "error",
+        "no-new-func": "error",
+        "no-plusplus": "error",
+        "prefer-arrow-callback": [
+            "error",
+            { "allowNamedFunctions": true }
+        ],
+        "prefer-const": "error",
+        "prefer-template": "error",
+        "prefer-rest-params": "error",
+        "prefer-spread": "error",
         "semi": [
+            "error",
+            "never"
+        ],
+        "space-before-blocks": "error",
+        "space-before-function-paren": [
+            "error",
+            {"anonymous": "never", "named": "never", "asyncArrow": "always"}
+        ],
+        "space-infix-ops": "error",
+        "template-curly-spacing": [
             "error",
             "never"
         ]

@@ -37,11 +37,17 @@ set term=xterm-256color
 set writeany
 
 let g:ale_linter_aliases = {'html': ['javascript']}
-let g:ale_javascript_standard_options = "--plugin html"
-let coffee_lint_options='-f ~/.coffeelint.json'
-let g:vim_json_syntax_conceal=0
+let g:ale_javascript_standard_options = '--plugin html'
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+" For energy efficiency set this to never
+"let g:ale_lint_on_text_changed = 'normal'
+
+let coffee_lint_options = '-f ~/.coffeelint.json'
+let g:vim_json_syntax_conceal = 0
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.log\|dist'
-let g:ag_working_path_mode="r"
+let g:ag_working_path_mode = 'r'
 
 "let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_always_populate_loc_list = 1
@@ -54,8 +60,9 @@ let g:ag_working_path_mode="r"
 "let g:syntastic_html_checkers = ['eslint']
 "let g:syntastic_mustache_checkers = ['tidy', 'eslint']
 "let g:syntastic_aggregate_errors = 1
-"let g:syntastic_html_tidy_ignore_errors=["is not recognized!", "discarding unexpected", "plain text isn't allowed in"]
+"let g:syntastic_html_tidy_ignore_errors=['is not recognized!', 'discarding unexpected', "plain text isn't allowed in"]
 
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
@@ -115,6 +122,9 @@ autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal! g`\"" |
     \ endif
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 syntax on
 

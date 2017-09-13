@@ -3,11 +3,13 @@ export CWD=`pwd`
 
 brew install \
     cmake \
+    heroku \
     libsass \
-    memcached \
     node \
-    postgres \
+    postgresql \
     python \
+    python3 \
     redis \
+    the_silver_searcher \
     vim \
     wget

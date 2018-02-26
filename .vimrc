@@ -7,7 +7,8 @@ set clipboard=unnamed
 set encoding=utf-8 nobomb
 set expandtab
 set ffs=unix,dos,mac
-set guifont=Meslo\ LG\ S\ for\ Powerline:h12
+"set guifont=Meslo\ LG\ S\ for\ Powerline:h12
+set guifont=Menlo\ Regular:h12
 set guioptions+=e
 set guioptions-=T
 set hidden
@@ -40,6 +41,7 @@ let g:ale_linter_aliases = {'html': ['javascript']}
 let g:ale_javascript_standard_options = '--plugin html'
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'html': ['eslint'],
 \}
 " For energy efficiency set this to never
 "let g:ale_lint_on_text_changed = 'normal'
@@ -88,6 +90,11 @@ let g:airline_mode_map = {
   \ 'S'  : 'S-L',
   \ }
 
+
+" air-line
+let g:airline_powerline_fonts = 0
+
+
 filetype off
 call vundle#begin()
 
@@ -97,7 +104,7 @@ Bundle 'ap/vim-css-color'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'hail2u/vim-css3-syntax'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'moll/vim-node'
 Bundle 'ntpeters/vim-better-whitespace'
 Bundle 'pangloss/vim-javascript'
@@ -105,6 +112,7 @@ Bundle 'roxma/vim-paste-easy'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'w0rp/ale'
+Bundle 'leafgarland/typescript-vim'
 
 call vundle#end()
 filetype plugin on
@@ -129,7 +137,10 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 syntax on
 
 colorscheme spacegray
+"set background=light
 
 highlight Error ctermbg=darkred  ctermfg=white cterm=NONE
 highlight Noise ctermfg=white
 highlight MatchParen cterm=none ctermbg=none ctermfg=magenta
+
+

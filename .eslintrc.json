@@ -37,10 +37,6 @@
             "all"
         ],
         "dot-notation": "error",
-        "func-style": [
-            "error",
-            "expression"
-        ],
         "indent": [
             "error",
             4

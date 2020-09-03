@@ -7,11 +7,11 @@ set clipboard=unnamed
 set encoding=utf-8 nobomb
 set expandtab
 set ffs=unix,dos,mac
-"set guifont=Meslo\ LG\ S\ for\ Powerline:h12
 set guifont=Menlo\ Regular:h12
 set guioptions+=e
 set guioptions-=T
 set hidden
+"set nohidden
 set history=1000
 set hlsearch
 set incsearch
@@ -33,95 +33,54 @@ set showcmd
 set smarttab
 set so=7
 set softtabstop=4
+set termguicolors
 set tabstop=4
-set term=xterm-256color
 set writeany
 
-let g:ale_linter_aliases = {'html': ['javascript']}
-let g:ale_javascript_standard_options = '--plugin html'
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'html': ['eslint'],
-\}
-" For energy efficiency set this to never
-"let g:ale_lint_on_text_changed = 'normal'
 
-let coffee_lint_options = '-f ~/.coffeelint.json'
-let g:vim_json_syntax_conceal = 0
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.log\|dist'
 let g:ag_working_path_mode = 'r'
+let g:ale_completion_enabled = 0
+let g:ale_fixers = { 'javascript': ['eslint'], 'html': ['eslint'] }
+let g:ale_javascript_standard_options = '--plugin html'
+let g:ale_linter_aliases = {'html': ['javascript']}
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '➜'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|\.log\|dist'
+let g:vim_json_syntax_conceal = 0
 
-"let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_loc_list_height = 5
-"let g:syntastic_auto_loc_list = 0
-"let g:syntastic_check_on_open = 0
-"let g:syntastic_check_on_wq = 1
-"let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_html_checkers=['eslint']
-"let g:syntastic_html_checkers = ['eslint']
-"let g:syntastic_mustache_checkers = ['tidy', 'eslint']
-"let g:syntastic_aggregate_errors = 1
-"let g:syntastic_html_tidy_ignore_errors=['is not recognized!', 'discarding unexpected', "plain text isn't allowed in"]
+let g:bufferline_active_buffer_left = ''
+let g:bufferline_active_buffer_right = ''
 
-let g:airline#extensions#ale#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#branch#enabled=1
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#whitespace#mixed_indent_algo = 0
-let g:airline#extensions#whitespace#max_lines = 20000
-let g:airline_section_x = ''
-let g:airline_section_y = ''
-let g:airline_powerline_fonts = 1
-let g:airline_skip_empty_sections = 1
-let g:airline_theme='bubblegum'
-let g:airline_mode_map = {
-  \ '__' : '-',
-  \ 'n'  : 'N',
-  \ 'i'  : 'I',
-  \ 'R'  : 'R',
-  \ 'v'  : 'V',
-  \ 'V'  : 'V-L',
-  \ 'c'  : 'C',
-  \ 's'  : 'S',
-  \ 'S'  : 'S-L',
+let g:lightline = {
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ], [ 'bufferline' ] ],
+  \ },
+  \ 'component': {
+  \   'bufferline': '%{bufferline#refresh_status()}%{g:bufferline_status_info.before}%#TabLineSel#%{g:bufferline_status_info.current}%#LightLineLeft_active_3#%{g:bufferline_status_info.after}'
+  \ }
   \ }
 
 
-" air-line
-let g:airline_powerline_fonts = 0
-
 
 filetype off
-call vundle#begin()
+call plug#begin()
 
-Bundle 'gmarik/Vundle.vim'
-Bundle 'ajh17/Spacegray.vim'
-Bundle 'ap/vim-css-color'
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'ctrlpvim/ctrlp.vim'
-Bundle 'moll/vim-node'
-Bundle 'ntpeters/vim-better-whitespace'
-Bundle 'pangloss/vim-javascript'
-Bundle 'roxma/vim-paste-easy'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'w0rp/ale'
-Bundle 'leafgarland/typescript-vim'
+Plug 'ajh17/Spacegray.vim'
+"Plug 'jacoborus/tender.vim'
+"
+Plug 'bling/vim-bufferline'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'roxma/vim-paste-easy'
+Plug 'sheerun/vim-polyglot'
+Plug 'w0rp/ale'
+call plug#end()
 
-call vundle#end()
 filetype plugin on
 
-" Fix for scss
-" https://github.com/cakebaker/scss-syntax.vim#function-names-starting-with-a-keyword
-autocmd FileType scss set iskeyword+=-
-
+autocmd FileType scss set iskeyword+=- " Fix for scss: https://github.com/cakebaker/scss-syntax.vim#function-names-starting-with-a-keyword
 autocmd BufNewFile,BufRead *.ract set filetype=html
+autocmd BufNewFile,BufRead *.svelte set filetype=html
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufEnter,InsertLeave * :syntax sync fromstart
 
@@ -135,12 +94,11 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 syntax on
-
 colorscheme spacegray
-"set background=light
 
-highlight Error ctermbg=darkred  ctermfg=white cterm=NONE
-highlight Noise ctermfg=white
-highlight MatchParen cterm=none ctermbg=none ctermfg=magenta
-
-
+"highlight Comment cterm=italic
+"highlight Error ctermbg=darkred  ctermfg=white cterm=NONE
+"highlight MatchParen cterm=none ctermbg=none ctermfg=magenta
+"highlight Noise ctermfg=white
+"highlight Normal guifg=#eeeeee ctermfg=255 guibg=#000000 ctermbg=0 gui=NONE cterm=NONE
+"highlight Visual guifg=NONE ctermfg=NONE guibg=#282828 ctermbg=235 gui=NONE cterm=NONE

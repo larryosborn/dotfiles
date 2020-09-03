@@ -1,4 +1,6 @@
 # This is Git's per-user configuration file.
+[github]
+	user = larryosborn
 [user]
 	name = Larry Osborn
 [push]

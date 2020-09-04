@@ -9,8 +9,10 @@ brew "node"
 brew "postgresql", restart_service: true
 brew "redis", restart_service: true
 brew "the_silver_searcher"
+cask "daisydisk"
 cask "firefox"
 cask "google-chrome"
+cask "microsoft-edge"
 cask "spotify"
 mas "1Password 7", id: 1333542190
 mas "DuckDuckGo Privacy Essentials", id: 1482920575

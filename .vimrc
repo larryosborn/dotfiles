@@ -33,7 +33,7 @@ set showcmd
 set smarttab
 set so=7
 set softtabstop=4
-set termguicolors
+"set termguicolors
 set tabstop=4
 set writeany
 

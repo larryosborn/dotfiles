@@ -1,21 +1,61 @@
+tap "aci/tools", "git@github.pie.apple.com:aci/homebrew-tools.git"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "orchard/cider", "https://github.pie.apple.com/orchard/homebrew-cider.git"
+cask "adoptopenjdk8"
+brew "antigen"
+brew "bash"
+brew "deno"
+brew "docker", link: false
+brew "git-subrepo"
+brew "go"
+brew "helm"
+brew "htop"
+brew "sqlite"
+brew "python@3.8", link: false
+brew "httpie"
+brew "libev"
+brew "hyperkit"
+brew "icu4c"
+brew "oniguruma"
 brew "jq"
+brew "zookeeper"
+brew "kafka"
+brew "kompose"
+brew "krb5"
+brew "kubernetes-cli"
 brew "mas"
+brew "minikube"
 brew "node"
+brew "pcre"
+brew "perl"
+brew "pipenv"
 brew "postgresql", restart_service: true
 brew "redis", restart_service: true
+brew "ruby"
 brew "the_silver_searcher"
+brew "twine-pypi"
+brew "vim"
+brew "aci/tools/kcli"
+brew "orchard/cider/orchard-cli"
+cask "cakebrew"
 cask "daisydisk"
+cask "docker"
 cask "firefox"
+cask "font-fira-code"
 cask "google-chrome"
+cask "microsoft-auto-update"
 cask "microsoft-edge"
 cask "spotify"
 mas "1Password 7", id: 1333542190
 mas "DuckDuckGo Privacy Essentials", id: 1482920575
+mas "Electron APIs", id: 1119345146
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Magnet", id: 441258766
 mas "Medis", id: 1063631769
